@@ -8,9 +8,10 @@ import numpy as np
 import pandas as pd
 import re
 
-dpath = '/Volumes/JasonWork/Projects/UKB_Proteomics/Data/'
-pro_df = pd.read_csv(dpath + 'Proteomics_RAW/Proteomics_ins0.csv')
-
+# dpath = '/Volumes/JasonWork/Projects/UKB_Proteomics/Data/'
+# pro_df = pd.read_csv(dpath + 'Proteomics_RAW/Proteomics_ins0.csv')
+dpath = r'olink_data_proteomics.csv'
+pro_df = pd.read_csv(dpath)
 my_eid_lst = pro_df.eid.tolist()
 nb_eids = len(my_eid_lst)
 my_pros_lst = pro_df.columns.tolist()[:-1]
@@ -45,6 +46,7 @@ pro_df = pro_df[~pro_df.eid.isin(eid_beyond_na30_lst)]
 
 pro_id_lst = pro_df.columns[:-1].tolist()
 pro_df_preprocessed = pro_df[['eid'] + pro_id_lst]
-pro_df_preprocessed.to_csv(dpath + 'Proteomics_RAW/Proteomics_S1QC.csv', index = False)
+# pro_df_preprocessed.to_csv(dpath + 'Proteomics_RAW/Proteomics_S1QC.csv', index = False)
+pro_df_preprocessed.to_csv('Proteomics_RAW/Proteomics_S1QC.csv', index = False)
 
 

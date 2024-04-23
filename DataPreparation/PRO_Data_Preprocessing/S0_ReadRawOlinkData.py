@@ -8,11 +8,12 @@ import os
 import numpy as np
 import pandas as pd
 import re
-
-dpath = '/Volumes/JasonWork/Dataset/UKB_Proteomics_20230417/'
-
+# dpath = '/Volumes/JasonWork/Dataset/UKB_Proteomics_20230417/'
+# dpath = r'C:\Users\phan635\Documents\GitHub\FutureHealthProteomicPrediction-pq'
+dpath = r'olink_data_proteomics.csv'
 # we only extract data obtained at instance 0
-mydf = pd.read_csv(dpath + 'olink_data.csv')
+# mydf = pd.read_csv(dpath + 'olink_data.csv')
+mydf = pd.read_csv(dpath)
 mydf = mydf.loc[mydf.ins_index == 0]
 mydf.ins_index.value_counts()
 mydf.reset_index(inplace = True)
