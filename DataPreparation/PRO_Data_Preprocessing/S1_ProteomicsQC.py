@@ -15,6 +15,8 @@ pro_df = pd.read_csv(dpath)
 my_eid_lst = pro_df.eid.tolist()
 nb_eids = len(my_eid_lst)
 my_pros_lst = pro_df.columns.tolist()[:-1]
+print('Number of individuals: ', nb_eids)##7481
+print('Number of proteins: ', len(my_pros_lst))##2938
 
 
 na_prop_lst = []

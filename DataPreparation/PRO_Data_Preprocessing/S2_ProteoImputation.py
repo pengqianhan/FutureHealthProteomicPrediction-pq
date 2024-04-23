@@ -27,10 +27,13 @@ def get_correlated_pros(pro_f, nb_f2select, corr_df):
     f_selected = tmpdf_sorted.iloc[:(nb_f2select+1)].index.tolist()
     return f_selected
 
-dpath = '/Volumes/JasonWork/Projects/UKB_Proteomics/Data/'
-
+# dpath = '/Volumes/JasonWork/Projects/UKB_Proteomics/Data/'
+# pro_df = pd.read_csv(dpath + 'Proteomics_RAW/Proteomics_S1QC.csv')
+dpath = ''
 pro_df = pd.read_csv(dpath + 'Proteomics_RAW/Proteomics_S1QC.csv')
+
 pro_f_lst = pro_df.columns.tolist()[1:]
+## 'Eid_info_data.csv' shuold be the clinical data file
 region_code_df = pd.read_csv(dpath + 'Eid_info_data.csv', usecols = ['eid', 'Region_code'])
 pro_df = pd.merge(region_code_df, pro_df, how = 'right', on = 'eid')
 region_code_lst = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
